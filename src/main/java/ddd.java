@@ -44,6 +44,7 @@ public class ddd {
         System.out.println("消耗灵魂之源数量: " + result.get(7));
     }
 
+    //计算词条等级
     private static double calculateLevel(Integer experience) {
         //查询相加后词条总经验所对应的最大词条等级  ex: 17335=59
         Map.Entry<Integer, Integer> entryMap = FeedMap.inquiryExperienceMap.floorEntry(experience);
@@ -57,6 +58,7 @@ public class ddd {
         }
     }
 
+    //计算词条经验
     public static Integer calculateEntries(String entry, Integer num) {
         String[] equipmentEntry = entry.split("\\.");
         int level = Integer.parseInt(equipmentEntry[0]);
@@ -77,6 +79,7 @@ public class ddd {
         }
     }
 
+    //计算使用材料数量
     private static void calculateConsumables(int level) {
         Map.Entry<Integer, Integer> stoneMap = FeedMap.stoneMap.ceilingEntry(level);
         result.put(5,result.get(5) + stoneMap.getValue());
